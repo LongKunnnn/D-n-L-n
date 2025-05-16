@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Detail</title>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">KUNZ</div>
+    <nav>
+      <ul>
+        <li><a href="#">Men</a></li>
+        <li><a href="#">Women</a></li>
+        <li><a href="#">Kids</a></li>
+        <li><a href="#">Sale</a></li>
+        <li><a href="#">Cart</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Product Detail -->
+  <section class="product-detail">
+    <div class="product-container">
+      <img id="product-image" src="" alt="Product Image">
+      <div class="product-info">
+        <h1 id="product-name">Basas Simple Life NE - Low Top - White</h1>
+        <p id="product-price" class="price">$120</p>
+
+        <div class="options-row">
+          <div class="quantity-selector">
+            <label for="quantity">Quantity:</label>
+            <div class="quantity-box">
+              <button id="decrease">-</button>
+              <input type="number" id="quantity" value="1" min="1">
+              <button id="increase">+</button>
+            </div>
+          </div>
+
+          <div class="size-selector">
+            <label for="size">Size:</label>
+            <select id="size">
+              <option disabled selected>Size</option>
+              <!-- Các lựa chọn kích cỡ sẽ được thêm vào qua JavaScript -->
+            </select>
+          </div>
+        </div>
+
+        <a href="#" class="buy-btn">Add to Cart</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Kunz. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Giải mã tham số URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id'); // Lấy id từ URL
+
+    // Dữ liệu sản phẩm (ví dụ đơn giản, bạn có thể lưu dữ liệu này trong một file JSON hoặc gọi từ API)
+    const products = {
+      1: {
+        name: 'Basas Simple Life NE - Low Top - White',
+        description: 'A stylish, comfortable white sneaker.',
+        price: '$120',
+        image: 'https://ananas.vn/wp-content/uploads/Pro_AV00002_1-2.jpg',
+        sizes: ['36', '37', '38', '39']
+      },
+      2: {
+        name: 'Pattas Tomo - Mule - Primrose Yellow',
+        description: 'A bright yellow mule for everyday wear.',
+        price: '$99',
+        image: 'https://ananas.vn/wp-content/uploads/Pro_AV00181_1.jpeg',
+        sizes: ['36', '37', '38', '39']
+      },
+      3: {
+        name: 'Kunz X Doraemon 50 Years Pattas',
+        description: 'Celebrating 50 years of Doraemon with this exclusive collaboration.',
+        price: '$130',
+        image: 'https://ananas.vn/wp-content/uploads/pro_A61112_1.jpg',
+        sizes: ['35', '36', '37', '38', '39', '40']
+      },
+      4: {
+    name: 'Vintas Vivu - Low Top - Warm Sand',
+    description: 'Vintas Vivu - Low Top - Warm Sand with a minimalist design. Comfortable and stylish for any occasion.',
+    price: '$110',
+    image: 'https://ananas.vn/wp-content/uploads/Pro_AV00205_1.jpeg',
+    sizes: ['36', '37', '38', '39']
+  },
+  5: {
+    name: 'Track 6 Fold-over Tongue - The Team - Low Top - Caviar Black',
+    description: 'Track 6 Fold-over Tongue with a bold design and premium comfort, ideal for active lifestyles.',
+    price: '$105',
+    image: 'https://ananas.vn/wp-content/uploads/Pro_A6F001_1.jpg',
+    sizes: ['36', '37', '38', '39']
+  },
+  6: {
+    name: 'Pattas Polka Dots - High Top - Jelly Bean',
+    description: 'Fun, high-top sneakers with a polka dot design in Jelly Bean color. Perfect for making a statement.',
+    price: '$115',
+    image: 'https://ananas.vn/wp-content/uploads/pro_AV00172_1.jpg',
+    sizes: ['36', '37', '38', '39']
+  },
+  7: {
+    name: 'Vintas Nauda EXT - Low Top - Monk\'s Robe',
+    description: 'Vintas Nauda EXT offers a refined look with premium leather and versatile design. Perfect for casual to semi-formal occasions.',
+    price: '$195',
+    image: 'https://ananas.vn/wp-content/uploads/Pro_AV00203_1.jpeg',
+    sizes: ['36', '37', '38', '39']
+  },
+  8: {
+    name: 'Urbas Ruler - Low Top - Silver Pink',
+    description: 'Urbas Ruler combines elegance with sporty charm, featuring a silver pink color that’s versatile and stylish.',
+    price: '$185',
+    image: 'https://ananas.vn/wp-content/uploads/Pro_AV00126_1.jpg',
+    sizes: ['36', '37', '38', '39']
+  },
+  9: {
+    name: 'Urbas SC - Low Top - Aloe Wash',
+    description: 'Urbas SC in Aloe Wash gives you a clean, minimalistic look that pairs well with any outfit.',
+    price: '$185',
+    image: 'https://ananas.vn/wp-content/uploads/Pro_AV00189_1.jpg',
+    sizes: ['36', '37', '38', '39']
+  },
+  10: {
+    name: 'Basas Bumper Gum NE - Mule - Black/Gum',
+    description: 'Basas Bumper Gum NE Mule offers a bold look with its black and gum color combination, great for casual style.',
+    price: '$199',
+    image: 'https://ananas.vn/wp-content/uploads/Pro_AV00004_1.jpeg',
+    sizes: ['36', '37', '38', '39']
+  },
+  11: {
+    name: 'Urbas Love+ 24 - Oyster White',
+    description: 'Urbas Love+ 24 gives a sophisticated, soft touch with its oyster white color. Comfortable and stylish.',
+    price: '$115',
+    image: 'https://ananas.vn/wp-content/uploads/Pro_ALP2402_1-1.jpg',
+    sizes: ['36', '37', '38', '39']
+  },
+  12: {
+    name: 'Urbas Love+ 23 - Slip On - Offwhite',
+    description: 'Urbas Love+ 23 is a slip-on style sneaker offering both comfort and style with an off-white hue.',
+    price: '$115',
+    image: 'https://ananas.vn/wp-content/uploads/Pro_ALP2023_1.jpg',
+    sizes: ['36', '37', '38', '39']
+  },
+  13: {
+    name: 'Track 6 Jazico - Low Top - Royal White',
+    description: 'Track 6 Jazico in royal white delivers a striking appearance with its low-top design and clean color scheme.',
+    price: '$199',
+    image: 'https://ananas.vn/wp-content/uploads/Pro_A6T016_1.jpeg',
+    sizes: ['36', '37', '38', '39']
+  },
+  14: {
+    name: 'Urbas SC - Mule - Cornsilk',
+    description: 'Urbas SC Mule with its cornsilk color offers a soft, delicate look for a laid-back yet fashionable style.',
+    price: '$179',
+    image: 'https://ananas.vn/wp-content/uploads/Pro_AV00200_1.jpg',
+    sizes: ['36', '37', '38', '39']
+  },
+  15: {
+    name: 'Urbas SC - Mule - Dusty Blue',
+    description: 'Urbas SC Mule brings a relaxed vibe with its dusty blue color, offering comfort and elegance in one.',
+    price: '$179',
+    image: 'https://ananas.vn/wp-content/uploads/Pro_AV00202_1.jpg',
+    sizes: ['36', '37', '38', '39']
+  },
+  16: {
+    name: 'Urbas SC - Mule - Aloe Wash',
+    description: 'Urbas SC Mule in Aloe Wash provides a clean, natural look that is both stylish and comfortable.',
+    price: '$169',
+    image: 'https://ananas.vn/wp-content/uploads/Pro_AV00198_1.jpg',
+    sizes: ['36', '37', '38', '39']
+  },
+  17: {
+    name: 'Basas RAW - High Top - Rustic',
+    description: 'Basas RAW High Top features a rustic design for those who prefer bold, standout footwear.',
+    price: '$115',
+    image: 'https://ananas.vn/wp-content/uploads/pro_AV00136_1.jpg',
+    sizes: ['36', '37', '38', '39']
+  },
+  18: {
+  name: 'Vintas Denim - Low Top - Night Sky',
+  description: 'Vintas Denim với phối màu Night Sky mang lại vẻ ngoài cổ điển và dễ phối đồ.',
+  price: '$115',
+  image: 'https://ananas.vn/wp-content/uploads/Pro_AV00212_1.jpg',
+  sizes: ['36', '37', '38', '39']
+},
+19: {
+  name: 'Urbas SC - Mule - Foliage',
+  description: 'Urbas SC Mule phối màu Foliage đem lại phong cách nhẹ nhàng, dễ chịu.',
+  price: '$115',
+  image: 'https://ananas.vn/wp-content/uploads/Pro_AV00201_1.jpg',
+  sizes: ['36', '37', '38', '39']
+},
+20: {
+  name: 'Basas Hook N\'Loop NE - Mule - White',
+  description: 'Basas Hook N\'Loop NE Mule màu trắng tinh tế, tiện lợi với thiết kế dán.',
+  price: '$105',
+  image: 'https://ananas.vn/wp-content/uploads/Pro_AV00010_1.jpeg',
+  sizes: ['36', '37', '38', '39']
+}
+
+      
+    };
+
+    // Kiểm tra và hiển thị thông tin sản phẩm dựa trên id
+    const product = products[productId];
+    if (product) {
+      // Hiển thị thông tin sản phẩm
+      document.getElementById('product-name').textContent = product.name;
+      document.getElementById('product-price').textContent = product.price;
+      document.getElementById('product-image').src = product.image;
+
+      // Thêm các kích cỡ vào dropdown
+      const sizeSelect = document.getElementById('size');
+      product.sizes.forEach(size => {
+        const option = document.createElement('option');
+        option.value = size;
+        option.textContent = size;
+        sizeSelect.appendChild(option);
+      });
+    } else {
+      document.querySelector('.product-detail').innerHTML = '<p>Product not found.</p>';
+    }
+
+    // Xử lý sự kiện thay đổi số lượng
+    document.getElementById('increase').addEventListener('click', function() {
+      let quantity = document.getElementById('quantity').value;
+      quantity++;
+      document.getElementById('quantity').value = quantity;
+    });
+
+    document.getElementById('decrease').addEventListener('click', function() {
+      let quantity = document.getElementById('quantity').value;
+      if (quantity > 1) {
+        quantity--;
+        document.getElementById('quantity').value = quantity;
+      }
+    });
+  </script>
+
+</body>
+</html>
