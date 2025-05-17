@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KUNZ - Trang Chủ</title>
   <link rel="stylesheet" href="css/style.css" />
+  
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -84,15 +86,19 @@
     }
 
     .category-item {
-      background: white;
-      padding: 40px;
-      border-radius: 8px;
-      width: 200px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      font-size: 18px;
-      font-weight: bold;
-      transition: transform 0.3s ease;
-    }
+  background: white;
+  padding: 15px; /* Giảm từ 40px */
+  border-radius: 8px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  font-size: 18px;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 
     .category-item:hover {
       transform: scale(1.05);
@@ -127,7 +133,7 @@
 
   <!-- Header -->
   <header>
-    <div class="logo">KUNZ</div>
+    <div class="logo" onclick="location.reload()" style="cursor: pointer;">KUNZ</div>
     <nav>
       <ul>
         <li><a href="#">Sản phẩm</a></li>
@@ -144,34 +150,61 @@
   </section>
 
   <!-- Danh mục sản phẩm -->
-  <section class="categories">
-    <h2>Danh mục sản phẩm</h2>
-    <div class="category-list">
-      <div class="category-item">Giày Nam</div>
-      <div class="category-item">Giày Nữ</div>
-      <div class="category-item">Phụ kiện</div>
+<section class="categories">
+  <h2>Danh mục sản phẩm</h2>
+  <div class="category-list">
+    <div class="category-item">
+      <img src="https://lexshoes.com/images/upload/Image/GIAY1/giay-the-thao.jpg" alt="Giày Nam" class="category-img">
+      Giày Nam
     </div>
-    <a class="explore-btn" href="index.html">Khám phá sản phẩm</a>
-  </section>
+    <div class="category-item">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmjkyc793j2JGn1I_VP6r4-kr7kBQxikZDDA&s" alt="Giày Nữ" class="category-img">
+      Giày Nữ
+    </div>
+    <div class="category-item">
+      <img src="https://cavat.com/wp-content/uploads/2023/07/phan-tich-thi-truong-phu-kien-thoi-trang.jpg" alt="Phụ kiện" class="category-img">
+      Phụ kiện
+    </div>
+  </div>
+  <a class="explore-btn" href="index.html">Khám phá sản phẩm</a>
+</section>
 
   <!-- Sản phẩm nổi bật -->
-  <section class="featured-products">
-    <h2>Sản phẩm nổi bật</h2>
-    <div class="product-list">
-      <div class="category-item">Basas Simple Life</div>
-      <div class="category-item">Pattas Tomo Mule</div>
-      <div class="category-item">Kunz x Doraemon</div>
-    </div>
-  </section>
+<section class="featured-products">
+  <h2>Sản phẩm nổi bật</h2>
+  <div class="product-list">
+  <a href="product.html?id=1" class="category-item">
+    <img src="https://ananas.vn/wp-content/uploads/Pro_AV00002_1-2.jpg" alt="Basas Simple Life" class="category-img">
+    Basas Simple Life
+  </a>
+  <a href="product.html?id=21" class="category-item">
+    <img src="https://ananas.vn/wp-content/uploads/Pro_AV00131_1.jpg" alt="Urbas Retrospective - Mid Top - Yellow Submarine" class="category-img">
+    Urbas Retrospective - Mid Top - Yellow Submarine
+  </a>
+  <a href="product.html?id=3" class="category-item">
+    <img src="https://ananas.vn/wp-content/uploads/pro_A61112_1.jpg" alt="Kunz x Doraemon" class="category-img">
+    Kunz x Doraemon
+  </a>
+</div>
+
+</section>
+
 
   <!-- Khuyến mãi -->
-  <section class="promotions">
-    <h2>Khuyến mãi đặc biệt</h2>
-    <div class="promotion-list">
-      <div class="category-item">Giảm giá 20% cho đơn hàng đầu tiên</div>
-      <div class="category-item">Freeship toàn quốc</div>
+<section class="promotions">
+  <h2>Khuyến mãi đặc biệt</h2>
+  <div class="promotion-list">
+    <div class="category-item">
+      <img src="https://stc.shopiness.vn/deal/2018/10/01/c/c/3/6/1538366364058_540.png" alt="Giảm giá 20%" class="category-img">
+      Giảm giá lên đến 100% cho đơn hàng đầu tiên
     </div>
-  </section>
+    <div class="category-item">
+      <img src="https://cbmbranding.com/wp-content/uploads/2021/10/Freeshipping.jpg" alt="Freeship" class="category-img">
+      Freeship toàn quốc
+    </div>
+  </div>
+</section>
+
 
   <!-- Footer -->
   <footer>

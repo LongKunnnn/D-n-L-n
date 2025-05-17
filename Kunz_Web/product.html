@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Product Detail</title>
   <link rel="stylesheet" href="css/style.css"/>
+
 </head>
 <body>
 
@@ -29,6 +30,8 @@
       <div class="product-info">
         <h1 id="product-name">Basas Simple Life NE - Low Top - White</h1>
         <p id="product-price" class="price">$120</p>
+        <p id="product-description"></p>
+
 
         <div class="options-row">
           <div class="quantity-selector">
@@ -188,23 +191,30 @@
   },
   18: {
   name: 'Vintas Denim - Low Top - Night Sky',
-  description: 'Vintas Denim với phối màu Night Sky mang lại vẻ ngoài cổ điển và dễ phối đồ.',
+  description: 'Vintas Denim in Night Sky colorway for a classic and easy-to-match look.',
   price: '$115',
   image: 'https://ananas.vn/wp-content/uploads/Pro_AV00212_1.jpg',
   sizes: ['36', '37', '38', '39']
 },
 19: {
   name: 'Urbas SC - Mule - Foliage',
-  description: 'Urbas SC Mule phối màu Foliage đem lại phong cách nhẹ nhàng, dễ chịu.',
+  description: 'Urbas SC Mule in Foliage colorway brings a gentle, pleasant style.',
   price: '$115',
   image: 'https://ananas.vn/wp-content/uploads/Pro_AV00201_1.jpg',
   sizes: ['36', '37', '38', '39']
 },
 20: {
   name: 'Basas Hook N\'Loop NE - Mule - White',
-  description: 'Basas Hook N\'Loop NE Mule màu trắng tinh tế, tiện lợi với thiết kế dán.',
+  description: 'Basas Hook N\'Loop NE Mule elegant white, convenient with adhesive design',
   price: '$105',
   image: 'https://ananas.vn/wp-content/uploads/Pro_AV00010_1.jpeg',
+  sizes: ['36', '37', '38', '39']
+},
+21: {
+  name: 'Urbas Retrospective - Mid Top - Yellow Submarine',
+  description: ' This uniqueness is even stronger on a completely new Mid Top form.',
+  price: '$150',
+  image: 'https://ananas.vn/wp-content/uploads/Pro_AV00131_1.jpg',
   sizes: ['36', '37', '38', '39']
 }
 
@@ -218,6 +228,8 @@
       document.getElementById('product-name').textContent = product.name;
       document.getElementById('product-price').textContent = product.price;
       document.getElementById('product-image').src = product.image;
+      document.getElementById('product-description').textContent = product.description;
+
 
       // Thêm các kích cỡ vào dropdown
       const sizeSelect = document.getElementById('size');
